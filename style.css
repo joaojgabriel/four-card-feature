@@ -20,6 +20,7 @@ body {
 main {
   margin: 0 auto;
   max-width: 82.93%;
+  min-height: 100vh;
 }
 
 header {
@@ -32,10 +33,11 @@ h1 {
   font-weight: 400;
 }
 
-@media screen and (min-width: 600px) {
-  main {
-    min-height: 100vh;
-  }
+strong {
+  display: block;
+}
+
+@media screen and (min-width: 1060px) {
   header {
     margin: 5rem auto;
   }
@@ -50,7 +52,8 @@ p {
 
 .cards {
   display: grid;
-  gap: 2.4rem;
+  max-width: 1100px;
+  gap: 24px;
 }
 
 .card {
@@ -60,7 +63,7 @@ p {
   border-radius: 5px;
   background-repeat: no-repeat;
   background-position: right 2.8rem bottom 2.8rem;
-  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 15px 25px hsla(229, 6%, 66%, 0.2);
   text-align: left;
   padding: 2.8rem;
   width: 100%;
@@ -89,28 +92,38 @@ p {
   background-image: url(images/icon-calculator.svg);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1060px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: start;
+    grid-template-rows: 14rem repeat(2, 10.8rem) 14rem;
+    place-items: center;
     height: 50.2rem;
+    margin: 5rem auto;
   }
 
   .card {
-    max-height: 24.8rem;
+    max-height: 100%;
     max-width: 34.8rem;
   }
 
   .card:nth-child(1) {
     grid-column: 1;
+    justify-self: end;
+    grid-row: 2/4;
   }
   .card:nth-child(2) {
     grid-column: 2;
+    align-self: end;
+    grid-row: span 2;
   }
   .card:nth-child(3) {
     grid-column: 2;
+    align-self: start;
+    grid-row: span 2;
   }
   .card:nth-child(4) {
     grid-column: 3;
+    justify-self: start;
+    grid-row: 2/4;
   }
 }
